@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SaetByeol_Calculator</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./art.css" rel="stylesheet" type="text/CSS" id="changeMode" />
+        <!--css 바꾸기-->
+        <script type="text/javascript">
+            function changeMode(CSS) {
+                var ch = document.getElementById('changeMode');
+                if (ch) {
+                    ch.href = ('./' + CSS + '.css');
+                }
+            }
+    </script>
+</head>
+<style>
+    .bn {
+        position: relative;
+        animation: bono 1.4s infinite ease-in-out alternate;
+    }
+
+    @keyframes bono {
+  0%   {left:1000px; top:-300px;}
+  100%  {left:1000px; top:-350px;}
+    }
+</style>
+<div id="container">
+    <!--상위-->
+    <div class="totalMap">계산기</div>
+    <div>
+        <div class="title_total">
+            이전 계산 식<input id="display" type="text" onkeydown="function(e)" /></div>
+        <div class="map">
+            계산 화면<input id="result" type="text" /></div>
+    </div>
+    <!--하위-->
+    <div class="totalDown">
+        <div>
+            <button onclick="reset()">AC</button>
+            <button onclick="del()">C</button>
+        </div>  
+        <!--모드-->
+        <div>
+           <!--<label><input type="radio" name="mode" checked>기본 모드</label>-->
+            <a href="javascript:changeMode('art')">기본 모드</a>
+            <a href="javascript:changeMode('dark')">어두운 모드</a>
+        
+            <!--이미지 업로드-->
+            <div class="image-container">
+                <img style="width: 475px;" id="preview-image">
+                <input style="display: block;" type="file" id="input-image">
+            </div>
+            <button class="btn_USD" onclick="USD()">USD MODE</button>
+        </div>
+        <!--숫자패드-->
+        <div class = "keyPad">
+            <div class="buttonWrap">
+                <button onclick="addOutput(7)">7</button>
+                <button onclick="addOutput(8)">8</button>
+                <button onclick="addOutput(9)">9</button>
+            </div>
+            <div class="buttonWrap">
+                <button onclick="addOutput(4)">4</button>
+                <button onclick="addOutput(5)">5</button>
+                <button onclick="addOutput(6)">6</button>
+            </div>
+            <div class="buttonWrap">
+                <button onclick="addOutput(1)">1</button>
+                <button onclick="addOutput(2)">2</button>
+                <button onclick="addOutput(3)">3</button>
+            </div>
+            <div class="buttonWrap">
+                <button onclick="addOutput('-')">+/-</button>
+                <button onclick="addOutput(0)">0</button>
+                <button onclick="addOutput('.')">.</button>
+            </div>
+        </div>
+        <!--계산부분-->
+        <div>
+            <div class="add_num"><button onclick="addOutput('+')">+</button></div>
+            <div class="add_num"><button onclick="addOutput('-')">-</button></div>
+            <div class="add_num"><button onclick="addOutput('*')">*</button></div>
+            <div class="add_num"><button onclick="addOutput('/')">/</button></div>
+            <div class="add_num"><button onclick="calculate()" order: 0">=</button></div>
+        </div>
+    </div>
+</div>
+<div class="record">
+    <p>record</p>
+    <label>
+        <input id="rec1" type="text">
+        <input id="rec2" type="text">
+        <input id="rec3" type="text">
+        <input id="rec4" type="text">
+        <input id="rec5" type="text">
+    </label>
+</div>
+<div class="bn">
+    <img width="180px" src="https://ifh.cc/g/0EXEq8.jpg">
+</div>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+    var display = document.getElementById("display");
+
+        function addOutput(num) {
+            display.value=display.value+num;
+        }
+
+        function calculate() {
+            var result = eval(display.value);
+            var displayResult = document.getElementById("result");
+            if (display.value.length > 30) {
+                alert("더 이상의 큰 수는 계산할 수 없습니다.");
+                error()
+            }
+            
+            displayResult.value = result;
+            if (result == undefined) {
+                alert("계산식을 입력해주세요.");
+            }
+            else {
+                // 콤마 추가
+                displayResult.value = result.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+                //기록 추가
+                function recording() {
+                    var rec1 = document.getElementsByid("rec1");
+                    var rec2 = document.getElementsByid("rec2");
+                    var rec3 = document.getElementsByid("rec3");
+                    var rec4 = document.getElementsByid("rec4");
+                    var rec5 = document.getElementsByid("rec5");
+                }
+
+                if (rec5.value == 0) {
+                    if (rec1.value == 0) {
+                        rec1.value = displayResult.value;
+                    }
+                    else if (rec2.value == 0) {
+                        rec2.value = displayResult.value;
+                    }
+                    else if (rec3.value == 0) {
+                        rec3.value = displayResult.value;
+                    }
+                    else if (rec4.value == 0) {
+                        rec4.value = displayResult.value;
+                    }
+                    else if (rec5.value == 0) {
+                        rec5.value = displayResult.value;
+                    }
+                }
+                // 기록 꽉찼을 때
+                else {
+                    rec1.value = "";
+                    rec1.value = rec2.value;
+                    rec2.value = "";
+                    rec2.value = rec3.value;
+                    rec3.value = "";
+                    rec3.value = rec4.value;
+                    rec4.value = "";
+                    rec4.value = rec5.value;
+                    rec5.value = "";
+                    rec5.value = displayResult.value;
+                }
+            }
+        }
+
+        function reset() {
+            display.value = "";
+            var displayResult = document.getElementById("result");
+            displayResult.value = "";
+            rec1.value = "";
+            rec2.value = "";
+            rec3.value = "";
+            rec4.value = "";
+            rec5.value = "";
+        }
+
+        function del() {
+            display.value = display.value.substring(0, display.value.length - 1);
+        }
+
+        // 키보드 엔터
+        document.onkeypress = function(e) {
+
+                var result = "";
+                if (typeof (e) != "undefined") result = e.which;
+                else result = event.keyCode;
+                if (result == 13) {
+                    calculate()
+                }
+            }
+        
+        // 이미지업로드2
+        function readImage(input) {
+                if (input.files && input.files[0]) {
+                    const reader = new FileReader()
+                    reader.onload = e => {
+                        const previewImage = document.getElementById("preview-image")
+                        previewImage.src = e.target.result
+                    }
+                    reader.readAsDataURL(input.files[0])
+                }
+            }
+            // 이미지 업로드3
+            const inputImage = document.getElementById("input-image")
+            inputImage.addEventListener("change", e => {
+                readImage(e.target)
+            })
+
+
+        //환율
+        function USD(){
+            if (display.value !== "") {
+                display.value = display.value + "*0.00089";
+            }
+            else {
+                alert("값을 먼저 입력하세요.");
+            }
+                
+        }
+    </script>
+</body>
+</html>

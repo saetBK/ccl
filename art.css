@@ -1,0 +1,136 @@
+#container {
+    width: 500px;
+    margin: auto;
+}
+
+#container > div{
+    border: 3px solid #1b0000
+}
+
+#display {
+    text-align: end;
+    width: 394px;
+    height: 30px;
+    font-size: medium;
+    font-weight: bold;
+    color:rgb(221, 188, 138)    
+}
+
+#result {
+    text-align: end;
+    width: 416px;
+    height: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    color:rgb(212, 127, 0)    
+}
+
+a:link {
+    color: #870000;
+}
+
+a:hover {
+    color: #ec407a;
+}
+
+.totalMap {
+    background-color: #1b0000;
+    color:rgb(221, 188, 138);
+}
+
+.title_total {
+    background-color: #4b1c00;
+    color:rgb(221, 188, 138);
+}
+
+.map {
+    background-color: antiquewhite;
+    color: #ac1900;
+
+}
+
+.totalDown {
+    background-color: #ffa726;
+    padding: 10px;
+}
+
+.record {
+    background-color: #ffd95b;
+    color: #870000;
+    text-align: center;
+    display: block;
+    margin: -170px auto;
+    width: 494px;
+    height: 150px;
+}
+
+
+
+Button{
+    background:linear-gradient(to bottom, #ffebd1 5%, #f58f00 100%);
+	background-color:#ff8c00;
+	border-radius:21px;
+	border:1px solid #942700;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 20px;
+	text-decoration:none;
+    
+}
+
+button:hover {
+	background:linear-gradient(to bottom, #f57c00 5%, #e64a19 100%);
+	background-color:#ac0800;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.btn_USD {
+    width: 200px;
+    margin: 20px;
+}
+
+.add_num{
+    transform: translate(180px, -164px);
+    margin: 2px;
+}
+
+.add_num:nth-last-child(1) > button {
+    width: 245px;
+    transform: translate(-180px, 15px);
+}
+
+.add_num > button {
+    width: 60px;
+}
+
+.buttonWrap {
+    margin: 2px;
+}
+
+.image-container:hover {
+    opacity: 0.5;
+}
+
+<style>
+.bn{
+    position: relative;
+    animation: bono 1.4s infinite ease-in-out alternate;
+}
+
+@keyframes bono {
+  from{
+    transform: translatey(0px);
+  }
+  to{
+    transform: translatey(-20px);
+  }
+}
+</style>

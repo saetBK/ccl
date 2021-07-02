@@ -1,0 +1,119 @@
+#container {
+    width: 500px;
+    margin: auto;
+}
+
+#container > div{
+    border: 3px solid #001064;
+}
+
+#display {
+    text-align: end;
+    width: 394px;
+    height: 30px;
+    font-size: medium;
+    font-weight: bold;
+    color:#d1d9ff;
+}
+
+#result {
+    text-align: end;
+    width: 416px;
+    height: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    color:#7a7cff;
+}
+
+a:link {
+    color: #fdd835;
+}
+
+a:hover {
+    color: #ff5722;
+}
+
+.totalMap {
+    background-color: #001064;
+    color: white;
+}
+
+.title_total {
+    background-color: #283593;
+    color: white;
+}
+
+.map {
+    background-color: #5f5fc4;
+    color: white;
+
+}
+
+.totalDown {
+    background-color: #7986cb;
+    padding: 10px;
+}
+
+.record {
+    background-color: #3949ab;
+    color: yellow;
+    text-align: center;
+    display: block;
+    margin: -170px auto;
+    width: 494px;
+    height: 150px;
+}
+
+
+
+Button{
+    background:linear-gradient(to bottom, #e7b9ff 5%, #7c4dff 100%);
+	background-color:#311b92;
+	border-radius:21px;
+	border:1px solid #000063;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 20px;
+	text-decoration:none;
+}
+
+button:hover {
+	background:linear-gradient(to bottom, #fff176 5%, #fbc02d 100%);
+	background-color:#e65100;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
+
+.btn_USD {
+    width: 200px;
+    margin: 20px;
+}
+
+.add_num{
+    transform: translate(180px, -164px);
+    margin: 2px;
+}
+
+.add_num:nth-last-child(1) > button {
+    width: 245px;
+    transform: translate(-180px, 15px);
+}
+
+.add_num > button {
+    width: 60px;
+}
+
+.buttonWrap {
+    margin: 2px;
+}
+
+.image-container:hover {
+    opacity: 0.5;
+}
